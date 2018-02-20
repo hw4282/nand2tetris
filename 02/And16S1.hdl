@@ -4,7 +4,7 @@
  * 16bit control 1bit'b'
  */
 
-CHIP And16S1 {
+CHIP And16S1{
     IN a[16], b;
     OUT out[16];
 
