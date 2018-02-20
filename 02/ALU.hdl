@@ -42,22 +42,27 @@ CHIP ALU {
         ng; // 1 if (out < 0),  0 otherwise
 
     PARTS:
+    // zx, nx algorthm 
     Zxg(a=x, b=zx, out=zxg1);
     Nxg(a=zxg1, b=nx, out=nxg1);
 
+    // zy, ny algorthm
     Zxg(a=y, b=zy, out=zyg1);
     Nxg(a=zyg1, b=ny, out=nyg1);
 
-
+    // F-1 process algorthm
     Add16(a=nxg1, b=nyg1, out=addf1);
     And16(a=nxg1, b=nyg1, out=andf1);
    
+    // F-2 Process algorthm
     And16S1(a=addf1, b=f, out=addf2);
     Zxg(a=andf1, b=f, out= andf2);
     Or16(a=addf2, b=andf2, out=fout1);
 
+    // No process algorthm 
     Nxg(a=fout1, b=no, out=out1);
 
+    //reselt
     Or16B1(a=out1, out=zr);
     Ncheck(a=out1, out=ng);
     Nxg(a=fout1, b=no, out=out);
