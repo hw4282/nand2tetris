@@ -1,0 +1,15 @@
+/**
+ *  nxg gate: 
+ * out = 1 if (b = 1 || a = 1),  otherwise 0
+ */
+
+CHIP Nxg {
+    IN a[16], b;
+    OUT out[16];
+
+    PARTS:
+    and16S1(a=a, b=b, out=andout);
+    Not16(in=andout, out=notout);
+    Or16S1(a=a, b=b, out=orout);
+    And16(a=notout, b=orout, out=out);
+}

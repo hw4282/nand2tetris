@@ -1,0 +1,31 @@
+/**
+ *  Or16B1 gate: 
+ * out = 1 if (a == 0),  otherwise 0
+ * 16bit -> 1bit
+ */
+
+CHIP Or16B1{
+    IN a[16];
+    OUT out;
+
+    PARTS:
+    Or(a=a[0],b=a[1], out=or1);
+    Or(a=a[2],b=a[3], out=or2);
+    Or(a=a[4],b=a[5], out=or3);
+    Or(a=a[6],b=a[7], out=or4);
+    Or(a=a[8],b=a[9], out=or5);
+    Or(a=a[10],b=a[11], out=or6);
+    Or(a=a[12],b=a[13], out=or7);
+    Or(a=a[14],b=a[15], out=or8);
+
+    Or(a=or1, b=or2, out=or11);
+    Or(a=or3, b=or4, out=or12);
+    Or(a=or5, b=or6, out=or13);
+    Or(a=or7, b=or8, out=or14);
+
+    Or(a=or11, b=or12, out=or21);
+    Or(a=or13, b=or14, out=or22);
+
+    Or(a=or21, b=or22, out=or30);
+    Not(in=or30, out=out);
+}

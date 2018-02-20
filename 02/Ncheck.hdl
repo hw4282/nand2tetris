@@ -1,0 +1,21 @@
+/**
+ *  1S16and gate: 
+ * out = 1 if (b[15] = 1),  otherwise 0
+ * 16bit -> 1bit
+ */
+
+CHIP Ncheck{
+    IN a[16];
+    OUT out;
+
+    PARTS:
+    Or(a=a[0],b=a[1], out=false);
+    Or(a=a[2],b=a[3], out=false);
+    Or(a=a[4],b=a[5], out=false);
+    Or(a=a[6],b=a[7], out=false);
+    Or(a=a[8],b=a[9], out=false);
+    Or(a=a[10],b=a[11], out=false);
+    Or(a=a[12],b=a[13], out=false);
+    Not(in=a[14], out=false);
+    And(a=a[15], b=a[15], out=out);
+}
