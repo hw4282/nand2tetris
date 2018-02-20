@@ -1,6 +1,6 @@
-load zxg.hdl,
-output-file zxg.out,
-compare-to zxg.cmp,
+load Zxg.hdl,
+output-file Zxg.out,
+compare-to Zxg.cmp,
 output-list a%B2.16.1 b%B2.1.2 out%B2.16.1;
 
 set a %B0000000000000000,

@@ -1,9 +1,9 @@
 /**
- *  zxg gate: 
+ *  Zxg gate: 
  * out = 1 if (b = 0),  otherwise 0
  */
 
-CHIP zxg {
+CHIP Zxg {
     IN a[16], b;
     OUT out[16];
 
