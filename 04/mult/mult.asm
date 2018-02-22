@@ -12,6 +12,7 @@
 D=M
 @i
 M=1
+
 (LOOP)
 @R0
 D=M
@@ -29,8 +30,7 @@ D=D+M
 @LOOP
 0;JMP
 (END)
+@2
+D=M
 @SUM
 D=M
-@R2
-M=D
-
